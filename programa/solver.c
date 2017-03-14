@@ -6,6 +6,13 @@ int main(){
 	char buffer[1000];
 	int n_buffer = 0;
 
+	SIZE = 4;
+	algorithm_id = 0;
+	heuristic_id = 1;
+	
+	int k;
+	char int_buffer[100];
+	/*
 	printf("Enter the puzzle size(3 or 4):\n");
 	scanf("%d", &SIZE);
 	
@@ -23,67 +30,78 @@ int main(){
 	else
 		printf("1 -> PDB\n");
 	scanf("%d", &heuristic_id);
+	*/
 		
-	printf("Please enter the current state of the puzzle:\n");
+	//printf("Please enter the current state of the puzzle:\n");
 	
 	//scan initial state
-	initial = malloc(sizeof(node));
-	initial -> parent = NULL;
-	initial -> action = 'x';
-	for(i = 0; i < SIZE; i++){
-		for(j = 0; j < SIZE; j++)
-			scanf("%d", &initial -> s[i][j]);
+	for(k = 0; k < 20; k++){
+		sprintf(int_buffer, "%d", k);
+		strcpy(buffer, "tests/test");
+		freopen (strcat(buffer, int_buffer), "r",stdin);
+		initial = malloc(sizeof(node));
+		initial -> parent = NULL;
+		initial -> action = 'x';
+		for(i = 0; i < SIZE; i++){
+			for(j = 0; j < SIZE; j++)
+				scanf("%d", &initial -> s[i][j]);
+		}
+		initial -> key = state2number(initial -> s);
+		
+		//initialize some variables
+		for(i = 0; i < SIZE; i++){
+			for(j = 0; j < SIZE; j++)
+				goalState[i][j] = SIZE * i + j;
+		}
+		directions[0] = 'u';
+		directions[1] = 'r';
+		directions[2] = 'd';
+		directions[3] = 'l';
+		expanded = 0;
+		generated = 0;
+		
+		if(heuristic_id > 0){
+			//read the pattern database
+			//printf("reading the pdb...\n");
+			readpdb();
+		}
+		
+		//run search
+		if(algorithm_id == 0){
+			//printf("running A*...\n");
+			t = astar();
+		}
+		else{
+			//printf("running IDA*...\n");
+			t = idastar();
+		}
+		
+		freeHash(0);
+		freeHash(1);
+		freeHash(2);
+		freeHash(3);
+		free(initial);
+		
+		/*
+		memset(buffer, 0, 1000 * (sizeof(char)));
+		printf("solution steps:\n");
+		
+		//traverse to the root
+		while(t -> parent != NULL){
+			buffer[n_buffer] = t -> action;
+			n_buffer++;
+			t = t -> parent;
+		}
+		
+		//print in reverse order
+		for(i = n_buffer - 1; i >= 0; i--)
+			printf("%c ", buffer[i]);
+		printf("\n");
+		
+		printf("%d nodes expanded\n", expanded);
+		printf("%d nodes generated\n", generated);
+		*/
 	}
-	initial -> key = state2number(initial -> s);
 	
-	//initialize some variables
-	for(i = 0; i < SIZE; i++){
-		for(j = 0; j < SIZE; j++)
-			goalState[i][j] = SIZE * i + j;
-	}
-	directions[0] = 'u';
-	directions[1] = 'r';
-	directions[2] = 'd';
-	directions[3] = 'l';
-	expanded = 0;
-	generated = 0;
-	
-	if(heuristic_id > 0){
-		//read the pattern database
-		printf("reading the pdb...\n");
-		readpdb();
-	}
-	
-	//run search
-	if(algorithm_id == 0){
-		printf("running A*...\n");
-		t = astar();
-	}
-	else{
-		printf("running IDA*...\n");
-		t = idastar();
-	}
-	
-	freeHash(0);
-	freeHash(1);
-	freeHash(2);
-	freeHash(3);
-	
-	printf("solution steps:\n");
-	
-	//traverse to the root
-	while(t -> parent != NULL){
-		buffer[n_buffer] = t -> action;
-		n_buffer++;
-		t = t -> parent;
-	}
-	
-	//print in reverse order
-	for(i = n_buffer - 1; i >= 0; i--)
-		printf("%c ", buffer[i]);
-	printf("\n");
-	
-	printf("%d nodes expanded\n", expanded);
-	printf("%d nodes generated\n", generated);
 	return 0;
 }
