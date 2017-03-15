@@ -27,6 +27,16 @@ Como que o desempenho é medido através deste programa?
 Se for através de tempo, você deve especificar claramente qual tempo deverá ser utilizado e indicar o motivo aqui. 
 Quantas vezes a medida deverá ser feita? O que fazer com ela (média, etc) ? Não especificar o tempo será considerado falha grave.
 
+As seguintes medidas serão consideradas: 
+* tempo de execução
+* instruções por ciclo
+* taxa de miss da cache L1 (cache-loads/cache-loads-misses)
+* misses da L1 por mil instruções
+* taxa de miss da TLB (TLB load misses / cache-references)
+* misses da TLB por mil instruções
+* taxa de erros na predição de branch (branch-misses/branch-instructions)
+* erros na predição de branch por mil instruções
+
 ## Como apresentar o desempenho
 Pensei em utilizar o tempo total, tempo de leitura de disco e o output do que o Borges passou. Podemos colocar tambem um desvio padrao para a media dos tempos.
 Aí coloca numa tabela e gg.
