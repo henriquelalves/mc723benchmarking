@@ -23,14 +23,14 @@ Um script para rodar o programa também está disponível. Uma vez que o program
 
 ## Como medir o desempenho
 
-Como que o desempenho é medido através deste programa? 
+<!-- Como que o desempenho é medido através deste programa? 
 Se for através de tempo, você deve especificar claramente qual tempo deverá ser utilizado e indicar o motivo aqui. 
-Quantas vezes a medida deverá ser feita? O que fazer com ela (média, etc) ? Não especificar o tempo será considerado falha grave.
+Quantas vezes a medida deverá ser feita? O que fazer com ela (média, etc) ? Não especificar o tempo será considerado falha grave.-->
 
 As seguintes medidas serão consideradas: 
 * tempo de execução
 * instruções por ciclo
-* taxa de miss da cache L1 (cache-loads/cache-loads-misses)
+* taxa de miss da cache L1 (cache-loads-misses/cache-loads)
 * misses da L1 por mil instruções
 * taxa de miss da TLB (TLB load misses / cache-references)
 * misses da TLB por mil instruções
