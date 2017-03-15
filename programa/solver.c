@@ -76,12 +76,6 @@ int main(){
 			t = idastar();
 		}
 		
-		freeHash(0);
-		freeHash(1);
-		freeHash(2);
-		freeHash(3);
-		free(initial);
-		
 		/*
 		memset(buffer, 0, 1000 * (sizeof(char)));
 		printf("solution steps:\n");
@@ -101,6 +95,13 @@ int main(){
 		printf("%d nodes expanded\n", expanded);
 		printf("%d nodes generated\n", generated);
 		*/
+		memset(buffer, 0, 1000 * (sizeof(char)));
+		
+		freeHash(0);
+		freeHash(1);
+		freeHash(2);
+		freeHash(3);
+		free(initial);
 	}
 	
 	return 0;

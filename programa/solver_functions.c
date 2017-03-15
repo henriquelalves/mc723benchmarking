@@ -336,25 +336,25 @@ void readpdb(){
 		while(fgets(line, 1000, (FILE*)fp0) != NULL){
 			sscanf(line, "%llu %d", &key, &value);
 			
-			if(searchHash(key, 0) == -1)
+			//if(searchHash(key, 0) == -1)
 				insertHash(key, value, 0);
 		}
 		
 		while(fgets(line, 1000, (FILE*)fp1) != NULL){
 			sscanf(line, "%llu %d", &key, &value);
 			
-			if(searchHash(key, 1) == -1)
+			//if(searchHash(key, 1) == -1)
 				insertHash(key, value, 1);
 		}
 		
 		while(fgets(line, 1000, (FILE*)fp2) != NULL){
 			sscanf(line, "%llu %d", &key, &value);
 			
-			if(searchHash(key, 2) == -1)
+			//if(searchHash(key, 2) == -1)
 				insertHash(key, value, 2);
 		}
 	}
-	if(SIZE == 4 && heuristic_id == 2){
+	else if(SIZE == 4 && heuristic_id == 2){
 		fp0 = fopen("pdbs/pdb15.3.6.6_0.txt", "r");
 		fp1 = fopen("pdbs/pdb15.3.6.6_1.txt", "r");
 		fp2 = fopen("pdbs/pdb15.3.6.6_2.txt", "r");
