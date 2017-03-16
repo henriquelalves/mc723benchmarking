@@ -1,16 +1,14 @@
-#só roda o programa
-#./solver
+#só roda o programa uma vez, pra gerar o gmon.out
+./solver
 
-#gera graficos do gprof
+#gprof interpreta gmon.out
+gprof solver gmon.out > gprof.txt
+
+#cria graficos do gprof(nao eh necessario)
 #gprof solver | python gprof2dot.py -n0 -e0 | dot -Tpng -o output.png
 
-# 3 iteracoes do perf para calcularmos a media dos valoresp posteriormente
-#echo 'Primeira iteração do perf'
-#perf stat -d -r 2 -e instructions,cycles,L1-dcache-loads,L1-dcache-load-misses,dTLB-load-misses,cache-references,branch-misses,branch-instructions ./solver > output/perf.out 2>&1
-#perf stat -d -e instructions,cycles,L1-dcache-loads,L1-dcache-load-misses,dTLB-load-misses,cache-references,branch-misses,branch-instructions ./solver > perfOutput1.out 2>&1
-#echo 'Segunda iteração do perf'
-#perf stat -d -e instructions,cycles,L1-dcache-loads,L1-dcache-load-misses,dTLB-load-misses,cache-references,branch-misses,branch-instructions ./solver > perfOutput2.out 2>&1
-#echo 'Terceira iteração do perf'
-#perf stat -d -e instructions,cycles,L1-dcache-loads,L1-dcache-load-misses,dTLB-load-misses,cache-references,branch-misses,branch-instructions ./solver > perfOutput3.out 2>&1
+#roda o perf no programa, altere o numero dps de "-r" para mudar o numero de runs
+perf stat -d -r 5 -e instructions,cycles,L1-dcache-loads,L1-dcache-load-misses,dTLB-load-misses,cache-references,branch-misses,branch-instructions ./solver > output/perf.out 2>&1
 
+#script para interpretar os dados
 python processOutput.py

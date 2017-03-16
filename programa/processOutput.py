@@ -73,3 +73,20 @@ print "L1 cache miss ratio: " +  str(l1MissRatio) + " +- " +  str((l1MissRatio_s
 print "L1 cache miss rate PTI: " +  str(l1MissRatePTI) + " +- " +  str((l1MissRatePTI_sigma / l1MissRatePTI) * 100) + "%"
 print "Data TLB miss ratio: " +  str(dataTLBMissRatio) + " +- " +  str((dataTLBMissRatio_sigma / dataTLBMissRatio) * 100) + "%"
 print "Tempo: " +  str(time) + " +- " +  str((time_sigma / time) * 100)  + "%"
+
+#get time used for reading pdb from gprof output
+#captura dados do output
+input = open('gprof.txt')
+text = input.readlines()[5:]
+disk_time = 0
+
+#pdb.set_trace()
+for item in text:
+	rawList = item.split()
+	#pdb.set_trace()
+	if(rawList[len(rawList) - 1] == "readpdb"):
+		disk_time  = rawList[0]
+		break
+
+print "Disk Time Usage: " + str(disk_time) + "%"
+		
