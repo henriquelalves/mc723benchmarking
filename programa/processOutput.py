@@ -73,3 +73,5 @@ print "L1 cache miss ratio: " +  str(l1MissRatio) + " +- " +  str((l1MissRatio_s
 print "L1 cache miss rate PTI: " +  str(l1MissRatePTI) + " +- " +  str((l1MissRatePTI_sigma / l1MissRatePTI) * 100) + "%"
 print "Data TLB miss ratio: " +  str(dataTLBMissRatio) + " +- " +  str((dataTLBMissRatio_sigma / dataTLBMissRatio) * 100) + "%"
 print "Tempo: " +  str(time) + " +- " +  str((time_sigma / time) * 100)  + "%"
+listaMedidas = [cyclePerInstruc,l1MissRatio,dataTLBMissRatio,branchMispredictRatio,time]
+print "Media:" + str(1/harmonicMean(listaMedidas))
