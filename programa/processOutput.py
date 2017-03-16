@@ -28,7 +28,7 @@ def harmonicMean(numbers):
 
 def propagateUncert(a, b, sigma_a, sigma_b):
 	#return math.sqrt((sigma_a / b)**2 + ((sigma_a / b**2)**2) * sigma_b**2)
-	return math.sqrt((sigma_a / a)**2 + ((sigma_b / b)**2))
+	return (a / b) * math.sqrt((sigma_a / a)**2 + ((sigma_b / b)**2))
 		
 #captura dados do output
 input = open('output/perf.out')
