@@ -70,8 +70,8 @@ time_sigma = dict['time'][1]
 #imprime media
 print "Cycles per Instructions: " +  str(cyclePerInstruc) + " +- " +  str((cyclePerInstruc_sigma / cyclePerInstruc) * 100) + "%"
 print "L1 cache miss ratio: " +  str(l1MissRatio) + " +- " +  str((l1MissRatio_sigma / l1MissRatio) * 100) + "%"
-print "L1 cache miss rate PTI: " +  str(l1MissRatePTI) + " +- " +  str((l1MissRatePTI_sigma / l1MissRatePTI) * 100) + "%"
 print "Data TLB miss ratio: " +  str(dataTLBMissRatio) + " +- " +  str((dataTLBMissRatio_sigma / dataTLBMissRatio) * 100) + "%"
+print "branchMispredictRatio: " +  str(branchMispredictRatio) + " +- " +  str((branchMispredictRatio_sigma / branchMispredictRatio) * 100) + "%"
 print "Tempo: " +  str(time) + " +- " +  str((time_sigma / time) * 100)  + "%"
 
 #get time used for reading pdb from gprof output
@@ -90,5 +90,5 @@ for item in text:
 
 print "Disk Time Usage: " + str(disk_time) + "%"
 		
-listaMedidas = [cyclePerInstruc,l1MissRatio,dataTLBMissRatio,branchMispredictRatio,time]
+listaMedidas = [cyclePerInstruc,l1MissRatio,dataTLBMissRatio,branchMispredictRatio,time,disk_time]
 print "Media:" + str(1/harmonicMean(listaMedidas))
