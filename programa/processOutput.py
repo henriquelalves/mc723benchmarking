@@ -16,6 +16,7 @@ dataTLBMissRatio = dict['dTLB-load-misses']/dict['cache-references']
 dataTLBMissRatePTI = dict['dTLB-load-misses']/(dict['instructions']/1000)
 branchMispredictRatio = dict['branch-misses']/dict['branch-instructions']
 branchMispredictRatePTI = dict['branch-misses']/(dict['instructions']/1000)
+time = dict['seconds']
 
 print "Instructions per cycle: "
 print instrucPerCycle
@@ -29,3 +30,5 @@ print dataTLBMissRatio
 list = [1/instrucPerCycle,l1MissRatio,l1MissRatePTI,dataTLBMissRatio,dataTLBMissRatePTI,branchMispredictRatio,branchMispredictRatePTI]
 print "Media:"
 print sum(list)/len(list)
+print "Tempo:"
+print time
