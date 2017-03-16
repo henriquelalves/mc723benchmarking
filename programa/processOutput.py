@@ -1,6 +1,20 @@
 #!/usr/bin/python
+import math
 
-input = open('perfOutput1.out')
+def desvioPadrao(numbers_list):
+	n = len(numbers_list)
+	media = sum(numbers_list) / n
+	sigma = 0
+	
+	for x in numbers_list:
+		sigma += (x - media) * (x - media)
+	
+	sigma = sigma / (n - 1)
+	sigma = math.sqrt(sigma)
+	
+	return sigma
+	
+input = open('meu_output')
 text = input.readlines()[3:]
 dict = {}
 for item in text:
