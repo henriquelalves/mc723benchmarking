@@ -90,3 +90,5 @@ for item in text:
 
 print "Disk Time Usage: " + str(disk_time) + "%"
 		
+listaMedidas = [cyclePerInstruc,l1MissRatio,dataTLBMissRatio,branchMispredictRatio,time]
+print "Media:" + str(1/harmonicMean(listaMedidas))
