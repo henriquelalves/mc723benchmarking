@@ -17,6 +17,15 @@ def desvioPadrao(numbers_list):
 	return sigma
 '''
 
+def average(numbers):
+	n = len(numbers)
+	s = 0
+	
+	for x in numbers:
+		s += float(x)
+	
+	return s / n
+
 def harmonicMean(numbers):
 	n = len(numbers)
 	s = 0
@@ -90,5 +99,5 @@ for item in text:
 
 print "Disk Time Usage: " + str(disk_time) + "%"
 		
-listaMedidas = [cyclePerInstruc,l1MissRatio,dataTLBMissRatio,branchMispredictRatio,time,disk_time]
-print "Media:" + str(1/harmonicMean(listaMedidas))
+listaMedidas = [cyclePerInstruc,l1MissRatio,dataTLBMissRatio,branchMispredictRatio,time/10,disk_time]
+print "Media: " + str(10/average(listaMedidas))
