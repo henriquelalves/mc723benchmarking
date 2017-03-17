@@ -39,6 +39,14 @@ O desempenho final da máquina após rodar o solver 5 vezes é gerado pelo profi
 
 ![Whoah!](lindo.png "Wow!")
 
+Aonde:
+- TM = Tempo Médio.
+- CI = Ciclos/Instruções.
+- L1M = L1 Misses/L1 Loads.
+- BM = Branch Misses/Branch Instructions.
+- TLB = TLB Misses/TLB Loads.
+- TD = Porcentagem de Tempo de Disco.
+
 A medição de tempo merece atenção especial pois foi decidido que ela seria a característica mais importante na determinação do score final; portanto, a medida foi dividida por 10 apenas para ter uma ordem de grandeza suficientemente grande para ser o grande diferencial na pontuação das máquinas testadas, sem perder a qualidade das outras características medidas.
  
 ## Medições base (uma máquina)
