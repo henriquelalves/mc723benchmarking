@@ -3,21 +3,21 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  ms/call  ms/call  name    
- 45.82      3.20     3.20 31580498     0.00     0.00  insertHash
- 43.53      6.25     3.04 461258480     0.00     0.00  freeListHash
-  7.30      6.76     0.51       80     6.38    44.41  freeHash
-  1.00      6.83     0.07       20     3.50   162.98  readpdb
-  0.86      6.89     0.06   526112     0.00     0.00  searchHash
-  0.86      6.95     0.06   130878     0.00     0.00  getHeuristic
-  0.72      7.00     0.05   589438     0.00     0.00  state2number
-  0.00      7.00     0.00   399583     0.00     0.00  swapHeap
-  0.00      7.00     0.00   253313     0.00     0.00  applyAction
-  0.00      7.00     0.00   196784     0.00     0.00  oppositeAction
-  0.00      7.00     0.00   130878     0.00     0.00  insertHeap
-  0.00      7.00     0.00   130878     0.00     0.00  isGoal
-  0.00      7.00     0.00    63335     0.00     0.00  extractHeap
-  0.00      7.00     0.00    63315     0.00     0.00  heapify
-  0.00      7.00     0.00       20     0.00     9.17  astar
+ 46.36      3.09     3.09 31580498     0.00     0.00  insertHash
+ 42.69      5.94     2.85 461258480     0.00     0.00  freeListHash
+  7.28      6.43     0.49       80     6.07    41.66  freeHash
+  1.05      6.50     0.07   589438     0.00     0.00  state2number
+  0.60      6.54     0.04   526112     0.00     0.00  searchHash
+  0.60      6.58     0.04   130878     0.00     0.00  getHeuristic
+  0.60      6.62     0.04       20     2.00   155.98  readpdb
+  0.30      6.64     0.02   253313     0.00     0.00  applyAction
+  0.30      6.66     0.02    63315     0.00     0.00  heapify
+  0.15      6.67     0.01   130878     0.00     0.00  insertHeap
+  0.15      6.68     0.01       20     0.50    11.15  astar
+  0.00      6.68     0.00   399583     0.00     0.00  swapHeap
+  0.00      6.68     0.00   196784     0.00     0.00  oppositeAction
+  0.00      6.68     0.00   130878     0.00     0.00  isGoal
+  0.00      6.68     0.00    63335     0.00     0.00  extractHeap
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -55,83 +55,83 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 0.14% of 7.00 seconds
+granularity: each sample hit covers 2 byte(s) for 0.15% of 6.68 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.00    7.00                 main [1]
-                0.51    3.04      80/80          freeHash [2]
-                0.07    3.19      20/20          readpdb [3]
-                0.00    0.18      20/20          astar [6]
-                0.00    0.00      20/589438      state2number [9]
+[1]    100.0    0.00    6.68                 main [1]
+                0.49    2.85      80/80          freeHash [2]
+                0.04    3.08      20/20          readpdb [3]
+                0.01    0.21      20/20          astar [6]
+                0.00    0.00      20/589438      state2number [8]
 -----------------------------------------------
-                0.51    3.04      80/80          main [1]
-[2]     50.8    0.51    3.04      80         freeHash [2]
-                3.04    0.00 461258480/461258480     freeListHash [5]
+                0.49    2.85      80/80          main [1]
+[2]     49.9    0.49    2.85      80         freeHash [2]
+                2.85    0.00 461258480/461258480     freeListHash [5]
 -----------------------------------------------
-                0.07    3.19      20/20          main [1]
-[3]     46.6    0.07    3.19      20         readpdb [3]
-                3.19    0.00 31449600/31580498     insertHash [4]
+                0.04    3.08      20/20          main [1]
+[3]     46.7    0.04    3.08      20         readpdb [3]
+                3.08    0.00 31449600/31580498     insertHash [4]
 -----------------------------------------------
                 0.01    0.00  130898/31580498     astar [6]
-                3.19    0.00 31449600/31580498     readpdb [3]
-[4]     45.8    3.20    0.00 31580498         insertHash [4]
+                3.08    0.00 31449600/31580498     readpdb [3]
+[4]     46.3    3.09    0.00 31580498         insertHash [4]
 -----------------------------------------------
                              31580498             freeListHash [5]
-                3.04    0.00 461258480/461258480     freeHash [2]
-[5]     43.5    3.04    0.00 461258480+31580498 freeListHash [5]
+                2.85    0.00 461258480/461258480     freeHash [2]
+[5]     42.7    2.85    0.00 461258480+31580498 freeListHash [5]
                              31580498             freeListHash [5]
 -----------------------------------------------
-                0.00    0.18      20/20          main [1]
-[6]      2.6    0.00    0.18      20         astar [6]
-                0.06    0.08  130878/130878      getHeuristic [7]
-                0.00    0.02  253313/253313      applyAction [10]
-                0.02    0.00  133478/526112      searchHash [8]
+                0.01    0.21      20/20          main [1]
+[6]      3.3    0.01    0.21      20         astar [6]
+                0.04    0.08  130878/130878      getHeuristic [7]
+                0.02    0.02  253313/253313      applyAction [9]
+                0.00    0.02   63335/63335       extractHeap [11]
                 0.01    0.00  130898/31580498     insertHash [4]
-                0.00    0.00  196784/196784      oppositeAction [12]
-                0.00    0.00  130878/130878      insertHeap [13]
-                0.00    0.00  130878/130878      isGoal [14]
-                0.00    0.00   63335/63335       extractHeap [15]
+                0.01    0.00  133478/526112      searchHash [10]
+                0.01    0.00  130878/130878      insertHeap [13]
+                0.00    0.00  196784/196784      oppositeAction [15]
+                0.00    0.00  130878/130878      isGoal [16]
 -----------------------------------------------
-                0.06    0.08  130878/130878      astar [6]
-[7]      2.0    0.06    0.08  130878         getHeuristic [7]
-                0.04    0.00  392634/526112      searchHash [8]
-                0.03    0.00  392634/589438      state2number [9]
------------------------------------------------
-                0.02    0.00  133478/526112      astar [6]
-                0.04    0.00  392634/526112      getHeuristic [7]
-[8]      0.9    0.06    0.00  526112         searchHash [8]
+                0.04    0.08  130878/130878      astar [6]
+[7]      1.7    0.04    0.08  130878         getHeuristic [7]
+                0.05    0.00  392634/589438      state2number [8]
+                0.03    0.00  392634/526112      searchHash [10]
 -----------------------------------------------
                 0.00    0.00      20/589438      main [1]
-                0.02    0.00  196784/589438      applyAction [10]
-                0.03    0.00  392634/589438      getHeuristic [7]
-[9]      0.7    0.05    0.00  589438         state2number [9]
+                0.02    0.00  196784/589438      applyAction [9]
+                0.05    0.00  392634/589438      getHeuristic [7]
+[8]      1.0    0.07    0.00  589438         state2number [8]
 -----------------------------------------------
-                0.00    0.02  253313/253313      astar [6]
-[10]     0.2    0.00    0.02  253313         applyAction [10]
-                0.02    0.00  196784/589438      state2number [9]
+                0.02    0.02  253313/253313      astar [6]
+[9]      0.7    0.02    0.02  253313         applyAction [9]
+                0.02    0.00  196784/589438      state2number [8]
 -----------------------------------------------
-                0.00    0.00  399583/399583      heapify [16]
-[11]     0.0    0.00    0.00  399583         swapHeap [11]
+                0.01    0.00  133478/526112      astar [6]
+                0.03    0.00  392634/526112      getHeuristic [7]
+[10]     0.6    0.04    0.00  526112         searchHash [10]
+-----------------------------------------------
+                0.00    0.02   63335/63335       astar [6]
+[11]     0.3    0.00    0.02   63335         extractHeap [11]
+                0.02    0.00   63315/63315       heapify [12]
+-----------------------------------------------
+                              399583             heapify [12]
+                0.02    0.00   63315/63315       extractHeap [11]
+[12]     0.3    0.02    0.00   63315+399583  heapify [12]
+                0.00    0.00  399583/399583      swapHeap [14]
+                              399583             heapify [12]
+-----------------------------------------------
+                0.01    0.00  130878/130878      astar [6]
+[13]     0.1    0.01    0.00  130878         insertHeap [13]
+-----------------------------------------------
+                0.00    0.00  399583/399583      heapify [12]
+[14]     0.0    0.00    0.00  399583         swapHeap [14]
 -----------------------------------------------
                 0.00    0.00  196784/196784      astar [6]
-[12]     0.0    0.00    0.00  196784         oppositeAction [12]
+[15]     0.0    0.00    0.00  196784         oppositeAction [15]
 -----------------------------------------------
                 0.00    0.00  130878/130878      astar [6]
-[13]     0.0    0.00    0.00  130878         insertHeap [13]
------------------------------------------------
-                0.00    0.00  130878/130878      astar [6]
-[14]     0.0    0.00    0.00  130878         isGoal [14]
------------------------------------------------
-                0.00    0.00   63335/63335       astar [6]
-[15]     0.0    0.00    0.00   63335         extractHeap [15]
-                0.00    0.00   63315/63315       heapify [16]
------------------------------------------------
-                              399583             heapify [16]
-                0.00    0.00   63315/63315       extractHeap [15]
-[16]     0.0    0.00    0.00   63315+399583  heapify [16]
-                0.00    0.00  399583/399583      swapHeap [11]
-                              399583             heapify [16]
+[16]     0.0    0.00    0.00  130878         isGoal [16]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -224,8 +224,8 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [10] applyAction             [7] getHeuristic           [12] oppositeAction
-   [6] astar                  [16] heapify                 [3] readpdb
-  [15] extractHeap             [4] insertHash              [8] searchHash
-   [2] freeHash               [13] insertHeap              [9] state2number
-   [5] freeListHash           [14] isGoal                 [11] swapHeap
+   [9] applyAction             [7] getHeuristic           [15] oppositeAction
+   [6] astar                  [12] heapify                 [3] readpdb
+  [11] extractHeap             [4] insertHash             [10] searchHash
+   [2] freeHash               [13] insertHeap              [8] state2number
+   [5] freeListHash           [16] isGoal                 [14] swapHeap

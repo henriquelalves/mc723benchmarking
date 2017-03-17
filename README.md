@@ -23,10 +23,6 @@ Um script para rodar o programa também está disponível. Uma vez que o program
 
 ## Como medir o desempenho
 
-<!-- Como que o desempenho é medido através deste programa? 
-Se for através de tempo, você deve especificar claramente qual tempo deverá ser utilizado e indicar o motivo aqui. 
-Quantas vezes a medida deverá ser feita? O que fazer com ela (média, etc) ? Não especificar o tempo será considerado falha grave.-->
-
 Através do profiler de Linux *perf*, o solver será rodado 5 vezes para se obter as médias dos seguintes atributos da máquina:
 * Tempo médio de execução.
 * Ciclos por Instruções (ciclo/instruções).
@@ -39,7 +35,11 @@ O erro de cada característica de execução é pré-computado pelo profiler par
 
 ## Como apresentar o desempenho
 
-O desempenho final da máquina após rodar o solver 5 vezes é gerado pelo profiler em um arquivo de output ("perf.out"); nele, o valor bruto das características é obtido, e combinados na planilha com o devido erro propagado quando necessário. Como os atributos de profiling foram escolhidos com o objetivo de terem pesos significativos na pontuação final, o score do Benchmark será a combinação simples dos atributos obtidos em uma média harmônica.
+O desempenho final da máquina após rodar o solver 5 vezes é gerado pelo profiler em um arquivo de output ("perf.out"); nele, o valor bruto das características é obtido, e combinados na planilha com o devido erro propagado quando necessário. O score final é calculado usando a seguinte equação:
+
+![Whoah!](lindo.png "Wow!")
+
+A medição de tempo merece atenção especial pois foi decidido que ela seria a característica mais importante na determinação do score final; portanto, a medida foi dividida por 10 apenas para ter uma ordem de grandeza suficientemente grande para ser o grande diferencial na pontuação das máquinas testadas, sem perder a qualidade das outras características medidas.
  
 ## Medições base (uma máquina)
 A máquina utilizada para as primeiras medições de Benchmarking possui a seguinte especificação de Hardware:
@@ -51,4 +51,4 @@ Intel® Core™ i5-4590 CPU @ 3.30GHz | 4 | L1: 32K, L2: 256K, L3: 6144K | HGST 
 A medição inicial obtida foi:
 Tempo de execução médio | Ciclos/Instrução | L1Misses/L1Loads | BranchMisses/BranchInstructions | TLBMisses / TLBLoads | % de Tempo de Disco | Score Final
 --- | --- | --- | --- | --- | --- | ---
-23.55 | 0.725199480453 | 0.0133852242446 | 0.0109411337384 | 0.470785594425 | 0.78 | 28.48916764
+23.55 | 0.725199480453 | 0.0133852242446 | 0.0109411337384 | 0.470785594425 | 0.78 | 13.77628235
