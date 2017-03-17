@@ -48,3 +48,6 @@ Processador | Cores | Cache | Disk Model
 --- | --- | --- | ---
 Intel® Core™ i5-4590 CPU @ 3.30GHz | 4 | L1: 32K, L2: 256K, L3: 6144K | HGST HTS721010A9E630
 
+A medição inicial obtida foi:
+Tempo de execução médio | Ciclos/Instrução | L1Misses/L1Loads | BranchMisses/BranchInstructions | TLBMisses / TLBLoads | % de Tempo de Disco | Score Final
+23.55 | 0.725199480453 | 0.0133852242446 | 0.0109411337384 | 0.470785594425 | 0.78 | 28.48916764
